@@ -12,13 +12,18 @@ import { CurrentlyReadingBento } from "@/app/components/CurrentlyReadingBento";
 import { GridWrapper } from "@/app/components/GridWrapper";
 import { AboutTrackPattern } from "@/app/components/AboutTrackPattern";
 import { Photo } from "@/app/components/Photo";
+import { Metadata } from 'next';
+
+// This is the correct way to add metadata in the Next.js App Router
+export const metadata: Metadata = {
+  title: 'About | Kiran Nirmal',
+};
 
 export default function AboutPage() {
   const timeOfDayGreeting = getTimeOfDayGreeting();
 
   return (
     <div className="relative mt-14">
-      <title>About | Kiran Nirmal</title>
       <div className="relative space-y-10 md:space-y-16">
         {/* Title */}
         <GridWrapper className="space-y-12">
@@ -107,7 +112,7 @@ export default function AboutPage() {
                   My Digital Journey Begins
                 </h2>
                 <p className="mb-6 text-base leading-7 text-text-secondary">
-                  With nearly a decade in the dynamic world of digital marketing, I've had the incredible opportunity to witness and adapt to its rapid evolution. My journey began with a deep fascination for how businesses connect with their audiences online. I quickly immersed myself in the core principles of SEO, SEM, social media marketing, and content strategy, always driven by the desire to create impactful and measurable results. Early on, I even managed to significantly boost organic traffic for a niche e-commerce site by over 150% in six months – a foundational success that still fuels my passion.
+                  With nearly a decade in the dynamic world of digital marketing, I&apos;ve had the incredible opportunity to witness and adapt to its rapid evolution. My journey began with a deep fascination for how businesses connect with their audiences online. I quickly immersed myself in the core principles of SEO, SEM, social media marketing, and content strategy, always driven by the desire to create impactful and measurable results. Early on, I even managed to significantly boost organic traffic for a niche e-commerce site by over 150% in six months – a foundational success that still fuels my passion.
                 </p>
               </div>
               <div className="hidden lg:order-1 lg:block">
@@ -139,7 +144,7 @@ export default function AboutPage() {
                   Finding My Way to Strategic Impact
                 </h2>
                 <p className="mb-6 text-base leading-8 text-text-secondary">
-                  While I initially explored various facets of digital marketing, my true calling emerged in crafting comprehensive digital strategies that not only drive awareness but also convert. I honed my skills in data analytics, conversion rate optimization (CRO), and integrated campaign management, realizing that the most effective marketing isn't just about individual channels, but about seamless, data-driven orchestration. The shift from executing tactics to defining overarching strategies became my game-changer, leading me to roles where I could shape and lead high-performing marketing initiatives.
+                  While I initially explored various facets of digital marketing, my true calling emerged in crafting comprehensive digital strategies that not only drive awareness but also convert. I honed my skills in data analytics, conversion rate optimization (CRO), and integrated campaign management, realizing that the most effective marketing isn&apos;t just about individual channels, but about seamless, data-driven orchestration. The shift from executing tactics to defining overarching strategies became my game-changer, leading me to roles where I could shape and lead high-performing marketing initiatives.
                 </p>
               </div>
               <div className="hidden lg:block">
@@ -171,9 +176,9 @@ export default function AboutPage() {
                   Life Beyond Campaigns
                 </h2>
                 <p className="mb-6 text-base leading-7 text-text-secondary">
-                  When I'm not in analytics or campaign strategy, my life revolves around passions outside of work. Staying curious and continuously learning is key, whether exploring new marketing tech or diving into thought-provoking discussions. My personal life, filled with quality time with family and friends, exploring new places, and finding everyday inspiration, provides the balance that brings fresh perspective and renewed energy to my work.
-                  </p>
-                  </div>
+                  When I&apos;m not in analytics or campaign strategy, my life revolves around passions outside of work. Staying curious and continuously learning is key, whether exploring new marketing tech or diving into thought-provoking discussions. My personal life, filled with quality time with family and friends, exploring new places, and finding everyday inspiration, provides the balance that brings fresh perspective and renewed energy to my work.
+                </p>
+              </div>
               <div className="hidden lg:block">
                 <div className="relative mx-auto w-fit">
                   <ShadowBox width={188} height={278}></ShadowBox>
@@ -203,10 +208,10 @@ export default function AboutPage() {
                   These Days
                 </h2>
                 <p className="mb-6 text-base leading-7 text-text-secondary">
-                  Currently, I am leveraging my expertise to lead digital marketing initiatives at [Insert Company Name Here, e.g., "a leading tech firm" or "an innovative agency"] where we're building impactful campaigns and pushing the boundaries of digital engagement. I'm also a regular contributor to industry discussions, often sharing insights on emerging digital trends and performance marketing strategies.
+                  Currently, I am leveraging my expertise to lead digital marketing initiatives at NEXA an digital marketing agency where we&apos;re building impactful campaigns and pushing the boundaries of digital engagement. I&apos;m also a regular contributor to industry discussions, often sharing insights on emerging digital trends and performance marketing strategies.
                 </p>
                 <p className="mb-6 text-base leading-7 text-text-secondary">
-                  When I'm not strategizing, you'll find me experimenting with new AI tools for marketing, contributing to digital marketing forums, enjoying a challenging board game with friends, or—best of all—unwinding with my loved ones, usually with a good cup of coffee and a keen eye on the latest industry news.
+                  When I&apos;m not strategizing, you&apos;ll find me experimenting with new AI tools for marketing, contributing to digital marketing forums, enjoying a challenging board game with friends, or—best of all—unwinding with my loved ones, usually with a good cup of coffee and a keen eye on the latest industry news.
                 </p>
               </div>
               <div className="hidden lg:block">

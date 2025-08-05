@@ -1,13 +1,15 @@
-import type { Metadata } from "next";
+{/*import type { Metadata } from "next";
+import Image from "next/image";
 import { HorizontalLine } from "@/app/components/HorizontalLine";
 import { GridWrapper } from "@/app/components/GridWrapper";
+
 
 type Connection = {
   name: string;
   profile_picture: string;
   socialLink: string;
   isConnected: boolean;
-  connectedDate?: Date;
+  connectedDate?: string; // changed to string for static rendering
 };
 
 export const metadata: Metadata = {
@@ -16,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 const connections: Connection[] = [
-  {
+  /*{
     name: "Tejas Kumar",
     profile_picture: "/connections/Tejas Kumar.jpeg",
     connectedDate: new Date("1/30/24"),
@@ -623,11 +625,14 @@ export default function ConnectionsPage() {
                       <span>
                         Met on{" "}
                         <time>
-                          {person.connectedDate.toLocaleDateString("en-US", {
-                            month: "numeric",
-                            day: "numeric",
-                            year: "2-digit",
-                          })}
+                          {new Date(person.connectedDate).toLocaleDateString(
+                            "en-US",
+                            {
+                              month: "numeric",
+                              day: "numeric",
+                              year: "2-digit",
+                            }
+                          )}
                         </time>
                       </span>
                     </div>
@@ -636,7 +641,9 @@ export default function ConnectionsPage() {
                     className="grid h-full place-items-center rounded-xl border-2 border-[#A5AEB81F]/10 bg-[#EDEEF0]"
                     style={{ boxShadow: "0px 2px 1.5px 0px #A5AEB852 inset" }}
                   >
-                    <img
+                    <Image
+                      width={56}
+                      height={56}
                       className={`h-14 w-14 rounded transition-all duration-300 ${
                         !person.isConnected ? "grayscale" : ""
                       }`}
@@ -661,3 +668,4 @@ export default function ConnectionsPage() {
     </div>
   );
 }
+*/}

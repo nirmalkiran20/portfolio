@@ -1,4 +1,3 @@
-// E:\my-digital-marketing-portfolio\app\components\ConnectionsBento.tsx
 "use client";
 
 import Link from "next/link";
@@ -68,7 +67,7 @@ export function ConnectionsBento() {
           }}
           variants={titleVariants}
         >
-          Let's Connect
+          Let&apos;s Connect
         </motion.h2>
 
         {/* Liquid Glass Panel (appears on hover) */}
@@ -98,7 +97,6 @@ export function ConnectionsBento() {
                 className="flex items-center justify-center space-x-3 text-white hover:text-blue-300 transition-colors duration-200 p-2 rounded-md hover:bg-white/10" // Added p-2 for clickable area and hover background
                 target="_blank"
                 rel="noopener noreferrer"
-                passHref
               >
                 {/* NEW Gmail Icon SVG (common envelope with 'M' style) */}
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -114,7 +112,6 @@ export function ConnectionsBento() {
                 className="flex items-center justify-left space-x-3 text-white hover:text-blue-300 transition-colors duration-200 p-2 rounded-md hover:bg-white/10" // Added p-2 for clickable area and hover background
                 target="_blank"
                 rel="noopener noreferrer"
-                passHref
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
                 <span className="text-lg font-semibold">Connect on LinkedIn</span>

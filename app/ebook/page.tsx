@@ -6,10 +6,17 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { ComponentPropsWithoutRef } from "react";
+import Image from 'next/image';
 
 function ProjectImage(props: { src: string; alt: string }) {
   return (
-    <img src={props.src} alt={props.alt} className="drama-shadow rounded-xl" />
+    <Image
+      src={props.src}
+      alt={props.alt}
+      width={1000}
+      height={500}
+      className="drama-shadow rounded-xl"
+    />
   );
 }
 
