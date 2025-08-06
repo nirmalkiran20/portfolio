@@ -58,15 +58,8 @@ export default async function BlogPage({
         <BlogPostList posts={displayedPosts} />
       </div>
 
-      <NewsletterSignUp
-        title={
-          category && category !== "all"
-            ? `Stay updated on ${category} articles`
-            : "Stay updated"
-        }
-        description="Sign up to receive notifications about new blog posts, insights, and exclusive content directly in your inbox."
-        buttonText="Get Notified"
-      />
+      {/* NewsletterSignUp is now called without props, as it always shows the quote */}
+      <NewsletterSignUp />
     </div>
   );
 }
