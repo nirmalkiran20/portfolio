@@ -1,5 +1,8 @@
 import { getTimeOfDayGreeting } from "../lib/utils";
 import { BentoCard } from "./BentoCard";
+import Image from "next/image"; // Import Next.js Image component
+// No need to import siteMetadata here if avatarImage is not used directly from it.
+// If you intend to use siteMetadata.avatarImage, you'll need to import { siteMetadata } from "app/data/siteMetadata";
 
 export function AboutMeBento({ linkTo }: { linkTo?: string }) {
   const timeOfDayGreeting = getTimeOfDayGreeting();
@@ -26,10 +29,13 @@ export function AboutMeBento({ linkTo }: { linkTo?: string }) {
               ></div>
             </div>
           </div>
-          <img
+          {/* Replaced <img> with Next.js Image component */}
+          <Image
             className="absolute -top-1 left-0 h-[270px] w-[180px] rotate-[8deg] rounded-lg object-cover shadow transition-all duration-500 group-hover:rotate-[4deg] group-hover:scale-105"
-            src="/about.jpg"
-            alt="A headshot"
+            src="https://placehold.co/180x270/FF6347/FFFFFF?text=Kiran+Profile" // Using a placeholder image
+            alt="Kiran Nirmal's headshot" // More descriptive alt text
+            width={180} // Explicit width
+            height={270} // Explicit height
           />
         </div>
       </div>

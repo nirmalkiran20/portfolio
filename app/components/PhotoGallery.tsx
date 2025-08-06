@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Photo } from "./Photo";
+import { Photo } from "./Photo"; // Photo component is now updated to use actual images
 
 type Direction = "left" | "right";
 

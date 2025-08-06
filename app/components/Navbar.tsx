@@ -5,20 +5,20 @@ import { SocialPill } from "./SocialPill";
 import { usePathname } from "next/navigation";
 import { CloseButton, Dialog, DialogPanel } from "@headlessui/react";
 import { useEffect, useState } from "react";
-import { siteMetadata } from "app/data/siteMetadata"; // Added import for siteMetadata
+import { siteMetadata } from "app/data/siteMetadata";
+import Image from "next/image"; // Import Next.js Image component
 
 type NavigationLink = {
   name: string;
   link: string;
 };
 
-// These links have been updated as requested.
 const navigationLinks: readonly NavigationLink[] = [
   { name: "Home", link: "/" },
   { name: "About", link: "/about" },
   { name: "Blog", link: "/blog" },
-  { name: "Ebook", link: "/projects" },
-  { name: "Recent Work", link: "/speaking" },
+  { name: "Ebook", link: "/ebook" },
+  { name: "Recent Work", link: "/recent-work" },
   { name: "Toolbox", link: "/toolbox" },
 ] as const;
 
@@ -45,11 +45,14 @@ function DesktopNav() {
     >
       <div className="w-[104px]">
         <Link href="/" aria-label="Home">
-          <img
+          {/* Using Next.js Image component for logo.svg */}
+          <Image
             className="h-6 w-6"
-            src="/logo.svg"
-            // Using siteMetadata for dynamic alt text
+            src="/logo.svg" // Assuming logo.svg is in your public folder
             alt={`${siteMetadata.author}'s Logo`}
+            width={24} // Specify width
+            height={24} // Specify height
+            priority // Add priority for critical images
           />
         </Link>
       </div>
@@ -106,7 +109,6 @@ function MobileNav() {
             <CloseButton className="rounded-full border border-border-primary p-2">
               <svg viewBox="0 0 16 16" fill="currentColor" className="h-5 w-5">
                 <path
-                  // Removed hardcoded fill and using currentColor for consistency
                   d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z"
                 ></path>
               </svg>
@@ -139,11 +141,14 @@ interface NavLogoProps {
 const NavLogo: React.FC<NavLogoProps> = ({ onClickCallback }) => {
   return (
     <Link href="/" onClick={() => onClickCallback(false)} aria-label="Home">
-      <img
+      {/* Using Next.js Image component for logo.svg */}
+      <Image
         className="h-8 w-8"
-        src="/logo.svg"
-        // Using siteMetadata for dynamic alt text
+        src="/logo.svg" // Assuming logo.svg is in your public folder
         alt={`${siteMetadata.author}'s Logo`}
+        width={32} // Specify width
+        height={32} // Specify height
+        priority // Add priority for critical images
       />
     </Link>
   );
@@ -176,7 +181,7 @@ const CircleBtn = ({
         aria-hidden="true"
       >
         <path
-          d="M0 4.99599C0 4.77599 0.105357 4.56501 0.292893 4.40945C0.48043 4.2539 0.734784 4.1665 1 4.1665H19C19.2652 4.1665 19.5196 4.2539 19.7071 4.40945C19.8946 4.56501 20 4.77599 20 4.99599C20 5.21598 19.8946 5.42696 19.7071 5.58252C19.5196 5.73808 19.2652 5.82547 19 5.82547H1C0.734784 5.82547 0.48043 5.73808 0.292893 5.58252C0.105357 5.42696 0 5.21598 0 4.99599ZM5 9.99942C5 9.77943 5.10536 9.56845 5.29289 9.41289C5.48043 9.25733 5.73478 9.16994 6 9.16994H19C19.2652 9.16994 19.5196 9.25733 19.7071 9.41289C19.8946 9.56845 20 9.77943 20 9.99942C20 10.2194 19.8946 10.4304 19.7071 10.586C19.5196 10.7415 19.2652 10.8289 19 10.8289H6C5.73478 10.8289 5.48043 10.7415 5.29289 10.586C5.10536 10.4304 5 10.2194 5 9.99942ZM11.8333 14.1742C11.5681 14.1742 11.3138 14.2616 11.1262 14.4172C10.9387 14.5727 10.8333 14.7837 10.8333 15.0037C10.8333 15.2237 10.9387 15.4347 11.1262 15.5902C11.3138 15.7458 11.5681 15.8332 11.8333 15.8332H19C19.2652 15.8332 19.5196 15.7458 19.7071 15.5902C19.8946 15.4347 20 15.2237 20 15.0037C20 14.7837 19.8946 14.5727 19.7071 14.4172C19.5196 14.2616 19.2652 14.1742 19 14.1742H11.8333Z"
+          d="M0 4.99599C0 4.77599 0.105357 4.56501 0.292893 4.40945C0.48043 4.2539 0.734784 4.1665 1 4.1665H19C19.2652 4.1665 19.5196 4.2539 19.7071 4.40945C19.8946 4.56501 20 4.77599 20 4.99599C20 5.21598 19.8946 5.42696 19.7071 5.58252C19.5196 5.73808 19.2652 5.82547 19 5.82547H1C0.734784 5.82547 0.48043 5.73808 0.292893 5.58252C0.105357 5.42696 0 5.21598 0 4.99599ZM5 9.99942C5 9.77943 5.10536 9.56845 5.29289 9.41289C5.48043 9.25733 5.73478 9.16994 6 9.16994H19C19.2652 9.16994 19.5196 9.25733 19.7071 9.41289C19.8946 9.56845 20 9.77943 20 9.99942C20 10.2194 19.8946 10.4304 19.7071 10.586C19.5196 10.7415 19.2652 10.8289 19 10.8289H6C5.73478 10.8289 5.48043 10.7415 5.29289 10.586C0.105357 10.4304 5 10.2194 5 9.99942ZM11.8333 14.1742C11.5681 14.1742 11.3138 14.2616 11.1262 14.4172C10.9387 14.5727 10.8333 14.7837 10.8333 15.0037C10.8333 15.2237 10.9387 15.4347 11.1262 15.5902C11.3138 15.7458 11.5681 15.8332 11.8333 15.8332H19C19.2652 15.8332 19.5196 15.7458 19.7071 15.5902C19.8946 15.4347 20 15.2237 20 15.0037C20 14.7837 19.8946 14.5727 19.7071 14.4172C19.5196 14.2616 19.2652 14.1742 19 14.1742H11.8333Z"
           fill="currentColor"
         />
       </svg>

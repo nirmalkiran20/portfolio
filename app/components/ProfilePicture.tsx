@@ -1,26 +1,29 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image"; // Import Next.js Image component
 
 export function ProfilePicture() {
+  // Use your actual image paths here. Ensure these files exist in your public folder.
   const [imageSrc, setImageSrc] = useState("/braydon_headshot_1.jpeg");
   const [isChanging, setIsChanging] = useState(false);
 
-  const changeImage = () => {
+  const changeImage = useCallback(() => {
     setIsChanging(true);
     const images = [
       "/me.jpg",
       "/myphoto.png",
+      "/braydon_headshot_1.jpeg", // Ensure this is also in the rotation if desired
     ];
     const availableImages = images.filter((img) => img !== imageSrc);
     const randomIndex = Math.floor(Math.random() * availableImages.length);
     setImageSrc(availableImages[randomIndex]);
-  };
+  }, [imageSrc]);
 
   useEffect(() => {
     changeImage();
-  }, []);
+  }, [changeImage]);
 
   return (
     <div className="relative my-5 md:mt-9">
@@ -112,11 +115,10 @@ export function ProfilePicture() {
         </motion.svg>
         <div className="absolute inset-0 flex items-center justify-center">
           <AnimatePresence mode="wait">
-            <motion.img
+            {/* CORRECTED: Wrap Image component in a motion.div */}
+            <motion.div
               key={imageSrc}
-              className="h-[100px] w-[100px] cursor-pointer rounded-full transition-opacity hover:opacity-90"
-              src={imageSrc}
-              alt=""
+              className="relative h-[100px] w-[100px] cursor-pointer rounded-full transition-opacity hover:opacity-90 overflow-hidden" // Added overflow-hidden for rounded corners
               onClick={changeImage}
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -126,7 +128,14 @@ export function ProfilePicture() {
                 stiffness: 300,
                 damping: 20,
               }}
-            />
+            >
+              <Image
+                src={imageSrc}
+                alt="Profile picture"
+                fill // Use fill to make image cover the parent div
+                className="object-cover" // object-cover for responsive image within fill
+              />
+            </motion.div>
           </AnimatePresence>
         </div>
       </div>

@@ -1,7 +1,9 @@
-{/*import type { Metadata } from "next";
+
+import type { Metadata } from "next";
 import Image from "next/image";
 import { HorizontalLine } from "@/app/components/HorizontalLine";
 import { GridWrapper } from "@/app/components/GridWrapper";
+
 
 
 type Connection = {
@@ -583,7 +585,7 @@ const connections: Connection[] = [
     profile_picture: "/connections/Sarah Drasner.jpeg",
     socialLink: "https://x.com/BraydonCoyer",
     isConnected: false,
-  },
+  },*/
 ];
 
 export default function ConnectionsPage() {
@@ -668,4 +670,3 @@ export default function ConnectionsPage() {
     </div>
   );
 }
-*/}

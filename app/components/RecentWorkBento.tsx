@@ -6,7 +6,7 @@ import { siteMetadata } from "app/data/siteMetadata";
 export function RecentWorkBento(): JSX.Element {
   const icon = <Briefcase className="h-4 w-4" />;
   const linkTo = "/speaking"; // This is the old path for speaking, now for Recent Work
-  const title = "My Recent Work";
+  const title = "Recent Work";
   const description =
     "A collection of my latest projects and case studies in digital marketing.";
 

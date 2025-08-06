@@ -3,12 +3,13 @@
 import { BentoCard } from "./BentoCard";
 import { motion } from "framer-motion";
 import React from "react";
+import Image from "next/image"; // Import Next.js Image component
 
 export function SpeakingBento() {
   const [isHovered, setIsHovered] = React.useState(false);
 
   return (
-    <BentoCard linkTo="/speaking" height="h-[276px]">
+    <BentoCard linkTo="/recent-work" height="h-[276px]">
       <div
         className="group h-full"
         onMouseEnter={() => setIsHovered(true)}
@@ -47,7 +48,7 @@ export function SpeakingBento() {
               stiffness: 150,
             }}
           >
-            <PrimaryPhoto />
+            <PrimaryPhoto imgSrc="/braydon_speaking_photo.jpeg" />
           </motion.span>
 
           <motion.span
@@ -62,7 +63,7 @@ export function SpeakingBento() {
               stiffness: 150,
             }}
           >
-            <SecondaryPhoto imgSrc="/braydon_speaking_head_3.jpeg" />
+            <SecondaryPhoto imgSrc="/braydon_headshot_4.jpg" />
           </motion.span>
         </div>
         {/* Gradient overlay */}
@@ -82,10 +83,10 @@ export function SpeakingBento() {
 
 export function CirclePattern({ isHovered }: { isHovered?: boolean }) {
   const rings = [
-    { width: 195, height: 195, x: 86.5, y: 108.5, delay: 0 }, // innermost
-    { width: 267, height: 267, x: 50.5, y: 72.5, delay: 0.2 }, // inner middle
-    { width: 339, height: 339, x: 14.5, y: 36.5, delay: 0.4 }, // outer middle
-    { width: 411, height: 411, x: -21.5, y: 0.5, delay: 0.6 }, // outermost
+    { width: 195, height: 195, x: 86.5, y: 108.5, delay: 0 },
+    { width: 267, height: 267, x: 50.5, y: 72.5, delay: 0.2 },
+    { width: 339, height: 339, x: 14.5, y: 36.5, delay: 0.4 },
+    { width: 411, height: 411, x: -21.5, y: 0.5, delay: 0.6 },
   ];
 
   return (
@@ -111,7 +112,7 @@ export function CirclePattern({ isHovered }: { isHovered?: boolean }) {
           }}
           transition={{
             duration: 0.4,
-            delay: isHovered ? ring.delay : 0.45 - ring.delay, // Reverse delay when unhovered
+            delay: isHovered ? ring.delay : 0.45 - ring.delay,
             ease: "easeInOut",
           }}
         />
@@ -247,7 +248,7 @@ function AudioIndicator({ isHovered }: { isHovered: boolean }) {
   );
 }
 
-function PrimaryPhoto() {
+function PrimaryPhoto({ imgSrc }: { imgSrc: string }) {
   return (
     <span className="relative">
       <svg
@@ -309,10 +310,13 @@ function PrimaryPhoto() {
         </defs>
       </svg>
 
-      <img
+      {/* Using Next.js Image component */}
+      <Image
         className="absolute left-1/2 top-1/2 h-[100px] w-[100px] -translate-x-1/2 -translate-y-1/2 transform rounded-full object-cover"
-        src="/braydon_speaking_photo.jpeg"
-        alt=""
+        src={imgSrc}
+        alt="Primary photo"
+        width={100}
+        height={100}
       />
     </span>
   );
@@ -379,10 +383,12 @@ function SecondaryPhoto({ imgSrc }: { imgSrc: string }) {
           </filter>
         </defs>
       </svg>
-      <img
+      <Image
         className="absolute left-1/2 top-1/2 h-[64px] w-[64px] -translate-x-1/2 -translate-y-1/2 transform rounded-full object-cover"
         src={imgSrc}
-        alt=""
+        alt="Secondary photo"
+        width={64}
+        height={64}
       />
     </span>
   );

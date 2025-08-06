@@ -28,8 +28,8 @@ export const siteMetadata = {
   resume: "/static/YOUR_RESUME_FILE_NAME.pdf", // e.g., "kiran_nirmal_resume.pdf"
   
   // You can add other relevant links here, for example:
-  // products: "YOUR_PRODUCTS_URL_HERE"
-  // blog: "YOUR_BLOG_URL_HERE"
+  products: "https://your-products-page.com", // UNCOMMENTED AND ADDED A PLACEHOLDER URL
+  // blog: "YOUR_BLOG_URL_HERE" // This is already handled by the blog page
   
   language: "en-us",
   locale: "en-US",

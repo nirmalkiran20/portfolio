@@ -2,6 +2,7 @@ import Link from "next/link";
 import { SocialPill } from "./SocialPill";
 import { GridWrapper } from "./GridWrapper";
 import { siteMetadata } from "app/data/siteMetadata";
+import Image from "next/image"; // Import Next.js Image component
 
 interface FooterLink {
   href: string;
@@ -14,36 +15,34 @@ interface FooterSection {
   links: FooterLink[];
 }
 
-// These are placeholder links. Please customize them to fit your portfolio.
-// You might want to update the titles and the hrefs to be relevant to your work.
 const footerSections: FooterSection[] = [
   {
     title: "General",
     links: [
       { href: "/", label: "Home" },
       { href: "/about", label: "About" },
-      { href: "/projects", label: "Projects" },
+      { href: "/ebook", label: "Ebook" },
       { href: "/blog", label: "Blog" },
     ],
   },
   {
     title: "Specifics",
     links: [
-      { href: "/services", label: "Services" }, // Example: changed from "toolbox"
-      { href: "/case-studies", label: "Case Studies" }, // Example: changed from "speaking"
+      { href: "/services", label: "Services" },
+      { href: "/recent-work", label: "Recent Work" },
       {
-        href: "YOUR_PRODUCTS_URL_HERE", // Please update this link
+        href: siteMetadata.products || "#",
         label: "Products",
         isExternal: true,
       },
-      { href: "/community", label: "Community" }, // Example: changed from "community-wall"
+      { href: "/community", label: "Community" },
     ],
   },
   {
     title: "Extra",
     links: [
-      { href: "/media", label: "Media" }, // Example: changed from "changelog"
-      { href: "/contact", label: "Contact" }, // Example: changed from "connections"
+      { href: "/media", label: "Media" },
+      { href: "/connections", label: "Connections" },
       { href: "/links", label: "Links" },
     ],
   },
@@ -70,18 +69,22 @@ export function Footer(): JSX.Element {
               <div>
                 <div className="flex-grow space-y-6">
                   <Link className="inline-block" href="/">
-                    <img
+                    {/* Using Next.js Image component for logo.svg */}
+                    <Image
                       className="h-10 w-10"
-                      src="/logo.svg"
-                      alt={`${siteMetadata.author}'s Logo`} // Dynamically using siteMetadata
+                      src="/logo.svg" // Assuming logo.svg is in your public folder
+                      alt={`${siteMetadata.author}'s Logo`}
+                      width={40}
+                      height={40}
+                      priority
                     />
                   </Link>
                   <p className="w-60 leading-5 text-gray-500">
-                    {siteMetadata.description} {/* Dynamically using siteMetadata */}
+                    {siteMetadata.description}
                   </p>
                 </div>
                 <p className="mt-6 text-gray-500">
-                  © {new Date().getFullYear()} {siteMetadata.author} {/* Dynamically using siteMetadata */}
+                  © {new Date().getFullYear()} {siteMetadata.author}
                 </p>
               </div>
               <div className="flex w-full items-end justify-end pr-16">

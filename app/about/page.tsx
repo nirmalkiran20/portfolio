@@ -3,7 +3,8 @@ import { HorizontalLine } from "@/app/components/HorizontalLine";
 import { getTimeOfDayGreeting } from "app/lib/utils";
 import React from "react";
 import { CurrentlyPlayingBento } from "@/app/components/CurrentlyPlayingBento";
-import { ConnectionsBento } from "@/app/components/ConnectionsBento";
+// import { ConnectionsBento } from "@/app/components/ConnectionsBento"; // Removed ConnectionsBento
+import { ConnectWithMeBento } from "@/app/components/ConnectWithMeBento"; // Import the new component
 import { ScrapbookBento } from "@/app/components/ScrapbookBento";
 import { ShadowBox } from "@/app/components/ShadowBox";
 import { Resume } from "app/components/Resume";
@@ -11,12 +12,14 @@ import { StatsBento } from "@/app/components/StatsBento";
 import { CurrentlyReadingBento } from "@/app/components/CurrentlyReadingBento";
 import { GridWrapper } from "@/app/components/GridWrapper";
 import { AboutTrackPattern } from "@/app/components/AboutTrackPattern";
-import { Photo } from "@/app/components/Photo";
+import { Photo } from "@/app/components/Photo"; // This component should also be updated to use Next.js Image
 import { Metadata } from 'next';
+import Image from "next/image"; // Import Next.js Image component
 
 // This is the correct way to add metadata in the Next.js App Router
 export const metadata: Metadata = {
   title: 'About | Kiran Nirmal',
+  description: 'Learn more about Kiran Nirmal, a Digital Marketing Specialist.',
 };
 
 export default function AboutPage() {
@@ -39,12 +42,13 @@ export default function AboutPage() {
             <div className="order-1 my-12 flex-shrink-0 lg:order-2 lg:my-0">
               <div className="relative mx-auto w-full max-w-[400px]">
                 <div className="relative grid grid-cols-3">
+                  {/* Photo components are assumed to be updated to use Next.js Image */}
                   <div className="relative z-20 -translate-y-2">
                     <Photo
                       width={140}
                       height={140}
-                      src="/photo5.jpg"
-                      alt="business"
+                      src="https://placehold.co/140x140/FF6347/FFFFFF?text=Digital+Marketing"
+                      alt="Digital Marketing Concepts"
                       direction="left"
                     />
                   </div>
@@ -52,8 +56,8 @@ export default function AboutPage() {
                     <Photo
                       width={140}
                       height={140}
-                      src="/photo1.jpg"
-                      alt="AI"
+                      src="https://placehold.co/140x140/4682B4/FFFFFF?text=AI+Tools"
+                      alt="AI Tools for Marketing"
                       direction="right"
                     />
                   </div>
@@ -61,8 +65,8 @@ export default function AboutPage() {
                     <Photo
                       width={140}
                       height={140}
-                      src="/photo3.jpg"
-                      alt="family"
+                      src="https://placehold.co/140x140/32CD32/FFFFFF?text=Strategy"
+                      alt="Marketing Strategy Development"
                       direction="left"
                     />
                   </div>
@@ -101,10 +105,13 @@ export default function AboutPage() {
                 <div className="mb-8 lg:hidden">
                   <div className="relative mx-auto w-fit">
                     <ShadowBox width={188} height={278}></ShadowBox>
-                    <img
+                    {/* Replaced <img> with Image component and a placeholder */}
+                    <Image
                       className="absolute left-0 top-0 h-[270px] w-[180px] rotate-[-8deg] rounded-lg object-cover shadow"
-                      src="/photo5.jpg"
-                      alt="A headshot"
+                      src="https://placehold.co/180x270/FF6347/FFFFFF?text=Kiran+Profile"
+                      alt="Kiran Nirmal profile"
+                      width={180}
+                      height={270}
                     />
                   </div>
                 </div>
@@ -112,16 +119,19 @@ export default function AboutPage() {
                   My Digital Journey Begins
                 </h2>
                 <p className="mb-6 text-base leading-7 text-text-secondary">
-                  With nearly a decade in the dynamic world of digital marketing, I&apos;ve had the incredible opportunity to witness and adapt to its rapid evolution. My journey began with a deep fascination for how businesses connect with their audiences online. I quickly immersed myself in the core principles of SEO, SEM, social media marketing, and content strategy, always driven by the desire to create impactful and measurable results. Early on, I even managed to significantly boost organic traffic for a niche e-commerce site by over 150% in six months – a foundational success that still fuels my passion.
+                  With nearly a decade in the dynamic world of digital marketing, I&apos;ve had the incredible opportunity to witness and adapt to its rapid evolution. My journey began with a deep fascination for how businesses connect with their audiences online. I quickly immersed myself in the core principles of SEO, SEM, social media marketing, and content strategy, always driven by the desire to create impactful and measurable results. Early on, I even managed to significantly boost organic traffic for a niche e-commerce site by over 150% in six months &ndash; a foundational success that still fuels my passion.
                 </p>
               </div>
               <div className="hidden lg:order-1 lg:block">
                 <div className="relative mx-auto w-fit">
                   <ShadowBox width={188} height={278}></ShadowBox>
-                  <img
+                  {/* Replaced <img> with Image component and a placeholder */}
+                  <Image
                     className="absolute left-0 top-0 h-[270px] w-[180px] rotate-[-8deg] rounded-lg object-cover shadow"
-                    src="/photo5.jpg"
-                    alt="A headshot"
+                    src="https://placehold.co/180x270/4682B4/FFFFFF?text=Kiran+Journey"
+                    alt="Kiran Nirmal's digital journey"
+                    width={180}
+                    height={270}
                   />
                 </div>
               </div>
@@ -133,10 +143,13 @@ export default function AboutPage() {
                 <div className="mb-8 lg:hidden">
                   <div className="relative mx-auto w-fit">
                     <ShadowBox width={188} height={278}></ShadowBox>
-                    <img
+                    {/* Replaced <img> with Image component and a placeholder */}
+                    <Image
                       className="absolute left-0 top-0 h-[270px] w-[180px] rotate-[8deg] rounded-lg object-cover shadow"
-                      src="/photo2.jpg"
-                      alt="Speaking at C3 Conf!"
+                      src="https://placehold.co/180x270/32CD32/FFFFFF?text=Strategic+Impact"
+                      alt="Strategic impact"
+                      width={180}
+                      height={270}
                     />
                   </div>
                 </div>
@@ -150,10 +163,13 @@ export default function AboutPage() {
               <div className="hidden lg:block">
                 <div className="relative mx-auto w-fit">
                   <ShadowBox width={188} height={278}></ShadowBox>
-                  <img
+                  {/* Replaced <img> with Image component and a placeholder */}
+                  <Image
                     className="absolute left-0 top-0 h-[270px] w-[180px] rotate-[8deg] rounded-lg object-cover shadow"
-                    src="/photo2.jpg"
-                    alt="Speaking at C3 Conf!"
+                    src="https://placehold.co/180x270/FFD700/000000?text=Data+Driven"
+                    alt="Data-driven marketing"
+                    width={180}
+                    height={270}
                   />
                 </div>
               </div>
@@ -165,10 +181,13 @@ export default function AboutPage() {
                 <div className="mb-8 lg:hidden">
                   <div className="relative mx-auto w-fit">
                     <ShadowBox width={188} height={278}></ShadowBox>
-                    <img
+                    {/* Replaced <img> with Image component and a placeholder */}
+                    <Image
                       className="absolute left-0 top-0 h-[270px] w-[180px] rotate-[-8deg] rounded-lg object-cover shadow"
-                      src="/photo1.jpg"
-                      alt="A headshot"
+                      src="https://placehold.co/180x270/8A2BE2/FFFFFF?text=Work+Life"
+                      alt="Work life balance"
+                      width={180}
+                      height={270}
                     />
                   </div>
                 </div>
@@ -182,10 +201,13 @@ export default function AboutPage() {
               <div className="hidden lg:block">
                 <div className="relative mx-auto w-fit">
                   <ShadowBox width={188} height={278}></ShadowBox>
-                  <img
+                  {/* Replaced <img> with Image component and a placeholder */}
+                  <Image
                     className="absolute left-0 top-0 h-[270px] w-[180px] rotate-[-8deg] rounded-lg object-cover shadow"
-                    src="/photo1.jpg"
-                    alt="A headshot"
+                    src="https://placehold.co/180x270/DA70D6/FFFFFF?text=Personal+Growth"
+                    alt="Personal growth and learning"
+                    width={180}
+                    height={270}
                   />
                 </div>
               </div>
@@ -197,10 +219,13 @@ export default function AboutPage() {
                 <div className="mb-8 lg:hidden">
                   <div className="relative mx-auto w-fit">
                     <ShadowBox width={188} height={278}></ShadowBox>
-                    <img
+                    {/* Replaced <img> with Image component and a placeholder */}
+                    <Image
                       className="absolute left-0 top-0 h-[270px] w-[180px] rotate-[8deg] rounded-lg object-cover shadow"
-                      src="/photo4.jpg"
-                      alt="A headshot"
+                      src="https://placehold.co/180x270/20B2AA/FFFFFF?text=Current+Focus"
+                      alt="Current professional focus"
+                      width={180}
+                      height={270}
                     />
                   </div>
                 </div>
@@ -211,16 +236,19 @@ export default function AboutPage() {
                   Currently, I am leveraging my expertise to lead digital marketing initiatives at NEXA an digital marketing agency where we&apos;re building impactful campaigns and pushing the boundaries of digital engagement. I&apos;m also a regular contributor to industry discussions, often sharing insights on emerging digital trends and performance marketing strategies.
                 </p>
                 <p className="mb-6 text-base leading-7 text-text-secondary">
-                  When I&apos;m not strategizing, you&apos;ll find me experimenting with new AI tools for marketing, contributing to digital marketing forums, enjoying a challenging board game with friends, or—best of all—unwinding with my loved ones, usually with a good cup of coffee and a keen eye on the latest industry news.
+                  When I&apos;m not strategizing, you&apos;ll find me experimenting with new AI tools for marketing, contributing to digital marketing forums, enjoying a challenging board game with friends, or&ndash;best of all&ndash;unwinding with my loved ones, usually with a good cup of coffee and a keen eye on the latest industry news.
                 </p>
               </div>
               <div className="hidden lg:block">
                 <div className="relative mx-auto w-fit">
                   <ShadowBox width={188} height={278}></ShadowBox>
-                  <img
+                  {/* Replaced <img> with Image component and a placeholder */}
+                  <Image
                     className="absolute left-0 top-0 h-[270px] w-[180px] rotate-[8deg] rounded-lg object-cover shadow"
-                    src="/photo4.jpg"
-                    alt="A headshot"
+                    src="https://placehold.co/180x270/9370DB/FFFFFF?text=NEXA+Agency"
+                    alt="NEXA Digital Marketing Agency"
+                    width={180}
+                    height={270}
                   />
                 </div>
               </div>
@@ -228,7 +256,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* About */}
+        {/* Experience Section */}
         <div className="relative space-y-8 text-center">
           <div className="space-y-4">
             <GridWrapper>
@@ -247,11 +275,9 @@ export default function AboutPage() {
           <GridWrapper>
             <Resume />
           </GridWrapper>
-          {/* <div className="flex justify-center">
-            <Button variant="secondary">Download Resume</Button>
-          </div> */}
         </div>
         
+        {/* More Section */}
         <section className="relative space-y-16">
           <div className="space-y-4">
             
@@ -280,10 +306,10 @@ export default function AboutPage() {
               <div className="hidden lg:col-span-2 lg:col-start-11 lg:row-span-10 lg:block lg:min-h-[50px]">
                 <CurrentlyReadingBento />
               </div>
+              {/* Replaced ConnectionsBento with ConnectWithMeBento */}
               <div className="lg:col-span-7 lg:row-span-8">
-                <ConnectionsBento />
+                <ConnectWithMeBento />
               </div>
-
               <div className="lg:col-span-3 lg:row-span-4">
                 <StatsBento />
               </div>

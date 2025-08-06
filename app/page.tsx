@@ -7,7 +7,8 @@ import { CommunityWallBento } from "./components/CommunityWallBento";
 import { CalendarBento } from "./components/CalendarBento";
 import { FeaturedBlogCard } from "./components/FeaturedBlogCard";
 import { ToolboxBento } from "./components/ToolboxBento";
-import { ConnectionsBento } from "./components/ConnectionsBento";
+// import { ConnectionsBento } from "./components/ConnectionsBento"; // Removed ConnectionsBento
+import { ConnectWithMeBento } from "./components/ConnectWithMeBento"; // Import the new component
 //import { AnimatedProfilePicture } from "./components/AnimatedProfilePicture";
 import { AnimatedText } from "./components/AnimatedText";
 import { PhotoGallery } from "./components/PhotoGallery";
@@ -48,7 +49,7 @@ export default async function Home() {
                   className="leading-8 text-text-secondary"
                 >
                   I&apos;m a digital marketing specialist with a growing passion for front-end development.<br />
-                 I love blending creativity with code to bring clean, impactful designs to life.
+                  I love blending creativity with code to bring clean, impactful designs to life.
                 </AnimatedText>
               </div>
             </GridWrapper>
@@ -86,8 +87,9 @@ export default async function Home() {
                 <AboutMeBento linkTo="/about" />
               </div>
 
+              {/* Replaced ConnectionsBento with ConnectWithMeBento */}
               <div className="md:col-span-12 lg:col-span-7 lg:row-span-8">
-                <ConnectionsBento />
+                <ConnectWithMeBento />
               </div>
 
               <div className="md:col-span-7 md:row-start-1 lg:col-span-5 lg:row-span-7">
