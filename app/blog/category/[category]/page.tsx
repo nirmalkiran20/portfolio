@@ -4,7 +4,7 @@ import { NewsletterSignUp } from "@/app/components/NewsletterSignUp";
 import { Metadata } from 'next';
 import { GridWrapper } from "@/app/components/GridWrapper";
 
-// Define a type for the dynamic segment params
+// Define a type for the dynamic segment params for the PAGE component
 interface CategoryPageProps {
   params: {
     category: string;
@@ -12,7 +12,8 @@ interface CategoryPageProps {
 }
 
 // Generate metadata dynamically based on the category
-export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
+// Explicitly define the type for params here to avoid inference issues
+export async function generateMetadata({ params }: { params: { category: string } }): Promise<Metadata> {
   const categoryName = decodeURIComponent(params.category); // Decode URL-encoded category
   return {
     title: `${categoryName} Blog Posts | Kiran Nirmal`,
