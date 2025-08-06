@@ -11,9 +11,18 @@ interface CategoryPageProps {
   };
 }
 
+// Define a dedicated interface for generateMetadata's props
+interface GenerateMetadataProps {
+  params: {
+    category: string;
+  };
+  // If you also use searchParams in generateMetadata, you'd add them here:
+  // searchParams: { [key: string]: string | string[] | undefined };
+}
+
 // Generate metadata dynamically based on the category
-// Explicitly define the type for params here to avoid inference issues
-export async function generateMetadata({ params }: { params: { category: string } }): Promise<Metadata> {
+// Use the dedicated GenerateMetadataProps interface here
+export async function generateMetadata({ params }: GenerateMetadataProps): Promise<Metadata> {
   const categoryName = decodeURIComponent(params.category); // Decode URL-encoded category
   return {
     title: `${categoryName} Blog Posts | Kiran Nirmal`,
