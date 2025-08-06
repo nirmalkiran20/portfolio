@@ -11,19 +11,20 @@ interface CategoryPageProps {
   };
 }
 
-// Define a dedicated interface for generateMetadata's props
-interface GenerateMetadataProps {
-  params: {
-    category: string;
-  };
-  // If you also use searchParams in generateMetadata, you'd add them here:
-  // searchParams: { [key: string]: string | string[] | undefined };
-}
+// Removed the dedicated GenerateMetadataProps interface
+// interface GenerateMetadataProps {
+//   params: {
+//     category: string;
+//   };
+//   // If you also use searchParams in generateMetadata, you'd add them here:
+//   // searchParams: { [key: string]: string | string[] | undefined };
+// }
 
 // Generate metadata dynamically based on the category
-// Use the dedicated GenerateMetadataProps interface here
-export async function generateMetadata({ params }: GenerateMetadataProps): Promise<Metadata> {
-  const categoryName = decodeURIComponent(params.category); // Decode URL-encoded category
+// Using a more generic Record type for params in generateMetadata
+export async function generateMetadata({ params }: { params: Record<string, string | string[]> }): Promise<Metadata> {
+  // Cast params.category to string as it's expected to be a string for dynamic routes
+  const categoryName = decodeURIComponent(params.category as string);
   return {
     title: `${categoryName} Blog Posts | Kiran Nirmal`,
     description: `Explore blog posts about ${categoryName} written by Kiran Nirmal, a Digital Marketing Specialist.`,
