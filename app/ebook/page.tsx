@@ -1,164 +1,121 @@
-'use client';
-
-import React from "react";
+import { NewsletterSignUp } from "@/app/components/NewsletterSignUp";
 import { GridWrapper } from "@/app/components/GridWrapper";
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import rehypeRaw from 'rehype-raw';
-import { ComponentPropsWithoutRef } from "react";
-import Image from 'next/image';
+import { Metadata } from 'next';
+import Image from "next/image"; // Import Next.js Image component
 
-function ProjectImage(props: { src: string; alt: string }) {
+export const metadata: Metadata = {
+  title: 'Ebook | Kiran Nirmal',
+  description: 'Download Kiran Nirmal\'s free SEO Ebook to elevate your digital presence.',
+};
+
+export default function EbookPage() {
   return (
-    <Image
-      src={props.src}
-      alt={props.alt}
-      width={1000}
-      height={500}
-      className="drama-shadow rounded-xl"
-    />
-  );
-}
+    <div className="relative mt-14">
+      <div className="relative space-y-10 md:space-y-16">
+        <GridWrapper className="space-y-12">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-around lg:px-24">
+            <div className="order-2 mx-auto max-w-lg lg:order-1 lg:m-0 lg:max-w-3xl lg:pr-12">
+              <div className="text-center text-sm font-medium text-indigo-600 lg:text-left">
+                <span>Ebook</span>
+              </div>
+              <h1 className="mx-auto max-w-2xl text-balance text-center text-4xl font-medium leading-tight tracking-tighter text-text-primary md:text-5xl lg:text-left lg:text-6xl lg:leading-[64px]">
+                The 2024 SEO Guide: Elevate Your Digital Presence
+              </h1>
+              <p className="mt-4 text-center text-lg leading-8 text-text-secondary lg:text-left">
+                Unlock the secrets to dominating search engines and driving organic traffic with this comprehensive guide. Perfect for beginners and seasoned marketers alike.
+              </p>
+              <div className="mt-8 flex justify-center lg:justify-start">
+                <a
+                  href="/ebook/The_2024_SEO_Guide_Kiran_Nirmal.pdf" // Link to your PDF file in the public folder
+                  download
+                  className="inline-flex items-center rounded-full bg-indigo-600 px-6 py-3 text-lg font-medium text-white shadow-lg transition-all duration-300 hover:bg-indigo-700 hover:scale-105"
+                >
+                  Download Ebook
+                  <svg
+                    className="ml-3 h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div className="order-1 my-12 flex-shrink-0 lg:order-2 lg:my-0">
+              <div className="relative mx-auto w-full max-w-[400px]">
+                <div className="relative">
+                  {/* Replaced img with Image component */}
+                  <Image
+                    className="h-[400px] w-[270px] rounded-lg object-cover shadow-lg"
+                    src="/static/ebook-cover.jpg" // Assuming this image is in public/static
+                    alt="The 2024 SEO Guide Ebook Cover"
+                    width={270}
+                    height={400}
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </GridWrapper>
 
-export default function ProjectPage() {
-  const ebookCover = "/projects/commit_your_code_project.jpeg";
-  const ebookTitle = "My First Ebook: From Idea to Amazon Best-Seller";
-  const amazonLink = "https://www.amazon.com/your-ebook-link";
+        {/* What You'll Learn Section */}
+        <section className="relative space-y-10 md:space-y-16">
+          <div className="space-y-4">
+            <GridWrapper>
+              <div className="text-center text-sm font-medium text-indigo-600">
+                <span>What&apos;s Inside</span> {/* Escaped apostrophe */}
+              </div>
+            </GridWrapper>
+            <GridWrapper>
+              <h2 className="mx-auto max-w-lg text-balance text-center text-3xl font-medium leading-10 tracking-tight text-text-primary md:text-4xl">
+                Dive deep into essential SEO strategies
+              </h2>
+            </GridWrapper>
+          </div>
+          <GridWrapper>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {/* Feature Cards - Example structure */}
+              <div className="rounded-lg border border-border-primary p-6 shadow-md">
+                <h3 className="mb-2 text-xl font-semibold text-text-primary">Keyword Research</h3>
+                <p className="text-text-secondary">Master finding the right keywords to attract your target audience.</p>
+              </div>
+              <div className="rounded-lg border border-border-primary p-6 shadow-md">
+                <h3 className="mb-2 text-xl font-semibold text-text-primary">On-Page SEO</h3>
+                <p className="text-text-secondary">Optimize your content and website structure for higher rankings.</p>
+              </div>
+              <div className="rounded-lg border border-border-primary p-6 shadow-md">
+                <h3 className="mb-2 text-xl font-semibold text-text-primary">Link Building</h3>
+                <p className="text-text-secondary">Build high-quality backlinks to boost your domain authority.</p>
+              </div>
+              <div className="rounded-lg border border-border-primary p-6 shadow-md">
+                <h3 className="mb-2 text-xl font-semibold text-text-primary">Technical SEO</h3>
+                <p className="text-text-secondary">Ensure your site is crawlable and indexable by search engines.</p>
+              </div>
+              <div className="rounded-lg border border-border-primary p-6 shadow-md">
+                <h3 className="mb-2 text-xl font-semibold text-text-primary">Local SEO</h3>
+                <p className="text-text-secondary">Dominate local search results and attract nearby customers.</p>
+              </div>
+              <div className="rounded-lg border border-border-primary p-6 shadow-md">
+                <h3 className="mb-2 text-xl font-semibold text-text-primary">Analytics & Reporting</h3>
+                <p className="text-text-secondary">Track your performance and make data-driven decisions.</p>
+              </div>
+            </div>
+          </GridWrapper>
+        </section>
 
-  const ebookJourneyText = `
-**Phase 1: Idea Generation & Outline**
-
-The core idea emerged from a common pain point I identified in my industry. I outlined the chapters and key learning goals.
-
-**Phase 2: Content Creation & AI Assistance**
-
-With the outline in place, I began writing. AI played a pivotal role in:
-* **Expand on key concepts:** Providing a brief idea and letting AI build on it.
-* **Draft examples and case studies:** Saving immense time in content generation.
-* **Summarize research:** Quickly distilling information from online sources.
-
-Every piece of AI-generated content was meticulously reviewed and rewritten where necessary to ensure accuracy and tone.
-
-**Phase 3: Editing, Formatting & Design**
-
-After multiple rounds of self-editing, I sought professional feedback. Tools like Grammarly and Hemingway helped with clarity and flow.
-
-**Phase 4: Publishing & Launch**
-
-Publishing on Amazon KDP was straightforward. The final steps involved formatting, uploading, and setting up promotions.
-
-This project was a testament to how modern tools, including AI, can accelerate creativity and productivity.
-`;
-
-  return (
-    <div className="relative space-y-16">
-      {/* Page Title */}
-      <GridWrapper>
-        <h1 className="mx-auto mt-16 max-w-2xl text-balance text-center text-4xl font-medium leading-tight tracking-tighter text-text-primary md:text-6xl md:leading-[64px]">
-          My First Ebook: A Journey from Idea to Publication
-        </h1>
-      </GridWrapper>
-
-      {/* Ebook Cover and Introduction */}
-<GridWrapper className="space-y-12">
-  <GridWrapper className="px-10">
-    <ProjectImage src={ebookCover} alt={ebookTitle} />
-  </GridWrapper>
-
-  <GridWrapper className="px-10">
-    <div
-  className="rounded-3xl border border-white/50 bg-white/10 p-8 backdrop-blur-md shadow-xl transition-all duration-300 hover:border-white/20 hover:scale-[1.02] hover:shadow-2xl transform"
->
-  <h1 className="mb-6 text-3xl font-semibold leading-tight tracking-tight text-text-primary md:leading-none drop-shadow-md">
-    My First Ebook: A Journey
-  </h1>
-
-  <p className="mb-4 text-left text-base leading-6 text-text-secondary">
-    Discover the comprehensive guide that walks you through the process of writing and publishing your first ebook.
-    This project details how I harnessed modern tools, including AI, to bring my vision to life and share it with
-    the world on Amazon.
-  </p>
-
-  <div className="text-left">
-    <a
-      className="inline-flex items-center text-sm font-medium text-indigo-600"
-      href={amazonLink}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Get it on Amazon
-      <svg
-        className="relative ml-2.5 mt-px overflow-visible"
-        width="3"
-        height="6"
-        viewBox="0 0 3 6"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M0 0L3 3L0 6"></path>
-      </svg>
-    </a>
-  </div>
-</div>
-</GridWrapper>
-</GridWrapper>
-
-      <GridWrapper className="py-12">
-  <div className="relative max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8">
-    {/* Glassmorphism Card Container (with title inside) */}
-    <div className="group relative backdrop-blur-md bg-white/50 border border-white/10 rounded-3xl p-6 md:p-10 shadow-xl
-                    transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-xl hover:ring-1 hover:ring-white/30">
-
-      {/* Title Inside Glass Box */}
-      <h2 className="mb-6 text-3xl font-semibold leading-tight tracking-tight text-text-primary md:leading-none drop-shadow-md">
-        The Journey: How I Wrote My Ebook (with AI's Help)
-      </h2>
-
-      {/* Markdown Text */}
-      <div className="prose max-w-none text-text-secondary">
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw]}
-          components={{
-            code: ({
-              node,
-              inline,
-              className,
-              children,
-              ...props
-            }: {
-              node?: any;
-              inline?: boolean;
-              className?: string;
-              children?: React.ReactNode | React.ReactNode[];
-              [key: string]: any;
-            }) => {
-              if (inline) {
-                return (
-                  <code className="bg-white/10 px-1 py-0.5 rounded text-sm">
-                    {children}
-                  </code>
-                );
-              }
-              return (
-                <pre className="bg-white/10 p-4 rounded-md overflow-x-auto text-sm">
-                  <code className={className} {...props}>
-                    {children}
-                  </code>
-                </pre>
-              );
-            },
-          }}
-        >
-          {ebookJourneyText}
-        </ReactMarkdown>
+        {/* Newsletter Section */}
+        <section>
+          <NewsletterSignUp />
+        </section>
       </div>
-    </div>
-  </div>
-</GridWrapper>
     </div>
   );
 }
