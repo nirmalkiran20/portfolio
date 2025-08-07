@@ -17,10 +17,17 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".", // Add this line
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"], // Add this line for the @/ alias
+      "#site/*": ["./.velite/*"] // Add this line for the #site/ alias
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/.velite/index.js"
+  ],
   "exclude": ["node_modules"]
 }
