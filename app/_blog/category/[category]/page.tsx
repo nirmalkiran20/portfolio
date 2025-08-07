@@ -1,41 +1,54 @@
 import { fetchAndSortBlogPosts } from "@/app/lib/utils";
 import { BlogPostList } from "@/app/components/BlogPostList";
 import { NewsletterSignUp } from "@/app/components/NewsletterSignUp";
-import { Metadata } from 'next';
+import { Metadata } from "next";
 import { GridWrapper } from "@/app/components/GridWrapper";
 
-// Define a type for the dynamic segment params for the PAGE component
-interface CategoryPageProps {
-  params: {
-    category: string;
-  };
-}
+/**
+ * The shape that must be supplied to every file that exports a page component
+ * in the new app‑router (Next 15).  
+ *   - `params`       – the dynamic segments of the route  
+ *   - `searchParams` – optional, you can ignore it if you don’t need it
+ */
+export type CategoryPageParams = {
+  category: string;
+};
 
-// Removed the dedicated GenerateMetadataProps interface
-// interface GenerateMetadataProps {
-//   params: {
-//     category: string;
-//   };
-//   // If you also use searchParams in generateMetadata, you'd add them here:
-//   // searchParams: { [key: string]: string | string[] | undefined };
-// }
+/**
+ * Props that match `PageProps`
+ */
+export type CategoryPageProps = {
+  params: CategoryPageParams;
+  searchParams?: Record<string, string | string[]>;
+};
 
-// Generate metadata dynamically based on the category
-// Using a more generic Record type for params in generateMetadata
-export async function generateMetadata({ params }: { params: Record<string, string | string[]> }): Promise<Metadata> {
-  // Cast params.category to string as it's expected to be a string for dynamic routes
-  const categoryName = decodeURIComponent(params.category as string);
+/**
+ * Metadata – same param shape, optional `searchParams`
+ */
+export async function generateMetadata({
+  params,
+}: {
+  params: CategoryPageParams;
+  searchParams?: Record<string, string | string[]>;
+}): Promise<Metadata> {
+  const categoryName = decodeURIComponent(params.category);
   return {
     title: `${categoryName} Blog Posts | Kiran Nirmal`,
     description: `Explore blog posts about ${categoryName} written by Kiran Nirmal, a Digital Marketing Specialist.`,
   };
 }
 
-export default async function CategoryPage({ params }: CategoryPageProps) {
-  const category = decodeURIComponent(params.category); // Decode URL-encoded category
+/**
+ * The page component – notice we don’t need to name it *CategoryPage* for anything,
+ * just keep the right type.
+ */
+export default async function CategoryPage({
+  params,
+}: CategoryPageProps) {
+  const category = decodeURIComponent(params.category);
   const allPosts = await fetchAndSortBlogPosts();
-  const categoryPosts = allPosts.filter(
-    (post) => post.categories && post.categories.includes(category)
+  const categoryPosts = allPosts.filter((post) =>
+    post.categories?.includes(category)
   );
 
   return (
@@ -58,7 +71,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
       <BlogPostList posts={categoryPosts} />
 
-      {/* NewsletterSignUp is now called without props, as it always shows the quote */}
       <NewsletterSignUp />
     </div>
   );
