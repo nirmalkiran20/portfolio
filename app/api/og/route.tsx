@@ -1,16 +1,18 @@
+// Disable the ESLint rule just for this file
+/* eslint-disable @next/next/no-img-element */
+
 import { siteMetadata } from "@/app/data/siteMetadata";
 import { ImageResponse } from "next/og";
 import { NextRequest } from "next/server";
 
-// Route segment config
 export const fetchCache = "force-no-store";
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
 
-    // Get the query parameters
-    const title = searchParams.get("title") || "Default Title";
+    const title = searchParams.get("title") || "Blog Post";
+    const summary = searchParams.get("summary") || "";
     const imageName = searchParams.get("image") || "";
 
     const isDevelopment = process.env.NODE_ENV === "development";
@@ -18,8 +20,7 @@ export async function GET(request: NextRequest) {
       ? "http://localhost:3000"
       : siteMetadata.siteUrl;
 
-    // Directly pull from public folder instead of /blog
-    const imageUrl = imageName ? `${baseUrl}/${imageName}` : "";
+    const imageUrl = imageName ? `${baseUrl}/blog/${imageName}` : "";
 
     return new ImageResponse(
       (
@@ -34,12 +35,16 @@ export async function GET(request: NextRequest) {
             position: "relative",
           }}
         >
-          {imageUrl && (
-            <img tw="absolute inset-0 -z-10" src={imageUrl} alt="background" />
-          )}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             tw="absolute inset-0 -z-10"
-            src={`${baseUrl}/braydoncoyer_og_overlay.png`}
+            src={imageUrl}
+            alt="article background image"
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            tw="absolute inset-0 -z-10"
+            src={`${baseUrl}/quote.jpg`}
             alt="Gradient overlay"
           />
 
@@ -58,6 +63,3 @@ export async function GET(request: NextRequest) {
     return new Response("Failed to generate OG image", { status: 500 });
   }
 }
-
-// Ensure this file is treated as a module
-export {};

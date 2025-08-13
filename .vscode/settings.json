@@ -11,5 +11,5 @@
     "node_modules": true
   },
   "prettier.ignorePath": ".gitignore",
-  "cSpell.words": ["supabase"]
+  "cSpell.words": []
 }

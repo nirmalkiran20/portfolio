@@ -11,14 +11,20 @@ const config = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'placehold.co',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "placehold.co",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "digital-marketing-lemon.vercel.app", // your live domain
+        port: "",
+        pathname: "/**",
       },
     ],
-    dangerouslyAllowSVG: true, // Keep this if you have local SVG images
-    contentDispositionType: 'attachment',
+    dangerouslyAllowSVG: true,
+    contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   async redirects() {
