@@ -1,12 +1,6 @@
-{
-  /*
 import { siteMetadata } from "@/app/data/siteMetadata";
 import { ImageResponse } from "next/og";
 import { NextRequest } from "next/server";
-// import fs from "fs";
-// import path from "path";
-
-// export const runtime = "nodejs";
 
 // Route segment config
 export const fetchCache = "force-no-store";
@@ -16,8 +10,7 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
 
     // Get the query parameters
-    const title = searchParams.get("title") || "Blog Post";
-    const summary = searchParams.get("summary") || "";
+    const title = searchParams.get("title") || "Default Title";
     const imageName = searchParams.get("image") || "";
 
     const isDevelopment = process.env.NODE_ENV === "development";
@@ -25,29 +18,8 @@ export async function GET(request: NextRequest) {
       ? "http://localhost:3000"
       : siteMetadata.siteUrl;
 
-    const imageUrl = imageName ? `${baseUrl}/blog/${imageName}` : "";
-
-    // Load fonts using the file system with Node.js runtime
-    // const geistRegular = fs.readFileSync(
-    //   path.join(
-    //     process.cwd(),
-    //     "node_modules/geist/dist/fonts/geist-sans/Geist-Regular.ttf",
-    //   ),
-    // );
-
-    // const geistMedium = fs.readFileSync(
-    //   path.join(
-    //     process.cwd(),
-    //     "node_modules/geist/dist/fonts/geist-sans/Geist-Medium.ttf",
-    //   ),
-    // );
-
-    // const geistSemiBold = fs.readFileSync(
-    //   path.join(
-    //     process.cwd(),
-    //     "node_modules/geist/dist/fonts/geist-sans/Geist-SemiBold.ttf",
-    //   ),
-    // );
+    // Directly pull from public folder instead of /blog
+    const imageUrl = imageName ? `${baseUrl}/${imageName}` : "";
 
     return new ImageResponse(
       (
@@ -62,11 +34,9 @@ export async function GET(request: NextRequest) {
             position: "relative",
           }}
         >
-          <img
-            tw="absolute inset-0 -z-10"
-            src={imageUrl}
-            alt="article background image"
-          />
+          {imageUrl && (
+            <img tw="absolute inset-0 -z-10" src={imageUrl} alt="background" />
+          )}
           <img
             tw="absolute inset-0 -z-10"
             src={`${baseUrl}/braydoncoyer_og_overlay.png`}
@@ -88,5 +58,6 @@ export async function GET(request: NextRequest) {
     return new Response("Failed to generate OG image", { status: 500 });
   }
 }
-*/
-}
+
+// Ensure this file is treated as a module
+export {};
