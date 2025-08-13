@@ -1,35 +1,34 @@
-import type { MetadataRoute } from "next";
-import { fetchAndSortBlogPosts } from "@/app/lib/utils";
-import { siteMetadata } from "@/app/data/siteMetadata";
+// app/sitemap.ts
+
+import { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const posts = fetchAndSortBlogPosts();
-  const blogUrls = posts.map((post) => ({
-    url: `${siteMetadata.siteUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.publishedAt),
-    changeFrequency: "weekly" as const,
-    priority: 0.8,
-  }));
+  // List all your static routes here
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://kirannirma.dev";
 
-  return [
+  const routes = [
     {
-      url: `${siteMetadata.siteUrl}`,
+      url: `${baseUrl}`,
       lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 1,
+      priority: 1.0,
     },
     {
-      url: `${siteMetadata.siteUrl}/about`,
+      url: `${baseUrl}/about`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/toolbox`,
+      lastModified: new Date(),
       priority: 0.7,
     },
     {
-      url: `${siteMetadata.siteUrl}/blog`,
+      url: `${baseUrl}/contact`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
+      priority: 0.7,
     },
-    ...blogUrls,
+    // Add as many static pages as needed
   ];
+
+  return routes;
 }
