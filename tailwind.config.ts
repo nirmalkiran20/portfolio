@@ -23,7 +23,7 @@ export default {
         "text-secondary": "#5E5F6E",
         "text-tertiary": "#A5AEB8",
       },
-      
+
       animation: {
         "spin-slow": "spin 14s linear infinite",
       },
@@ -32,5 +32,5 @@ export default {
   future: {
     hoverOnlyWhenSupported: true,
   },
-  plugins: [require('@tailwindcss/typography'),],
+  plugins: [require("@tailwindcss/typography")],
 } satisfies Config;

@@ -47,7 +47,7 @@ function DesktopNav() {
         <Link href="/" aria-label="Home">
           {/* Using Next.js Image component for logo.svg */}
           <Image
-            className="h-6 w-6"
+            className="h-11 w-11"
             src="/logo.svg" // Assuming logo.svg is in your public folder
             alt={`${siteMetadata.author}'s Logo`}
             width={24} // Specify width

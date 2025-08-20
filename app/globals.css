@@ -212,3 +212,12 @@ table {
 blockquote p {
   margin: 0 !important;
 }
+html,
+body {
+  background-color: #f9f9f9; /* fallback */
+  background-image: url("/textures/paper4.png");
+  background-repeat: repeat;
+  background-size: 100%; /* or 1024px for larger texture */
+  position: relative;
+  z-index: 0;
+}

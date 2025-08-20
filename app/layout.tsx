@@ -12,7 +12,7 @@ import Script from "next/script";
 export const metadata: Metadata = {
   // Add metadataBase here. Replace 'https://your-portfolio-domain.com' with your actual domain.
   // If you don't have a custom domain yet, you can use a placeholder like your Vercel deployment URL.
-  metadataBase: new URL('http://localhost:3000'), // Or your actual deployed domain, e.g., new URL('https://kiran-portfolio.vercel.app')
+  metadataBase: new URL("http://localhost:3000"), // Or your actual deployed domain, e.g., new URL('https://kiran-portfolio.vercel.app')
   description: siteMetadata.description,
   openGraph: {
     title: siteMetadata.title,
