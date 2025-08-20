@@ -1,4 +1,5 @@
 import { BgGradient } from "./components/BgGradient";
+import { MySitePattern } from "./components/SvgPatterns";
 import { NewsletterSignUp } from "./components/NewsletterSignUp";
 import { ChangelogBento } from "./components/ChangelogBento";
 //import { fetchAndSortBlogPosts } from "./lib/utils";
@@ -141,12 +142,12 @@ export default async function Home() {
           <div className="space-y-4 text-balance">
             <GridWrapper>
               <div className="text-center text-sm font-medium text-indigo-600">
-                <span>My Site</span>
+                <span>My Work</span>
               </div>
             </GridWrapper>
             <GridWrapper>
               <h2 className="text-center text-3xl font-medium leading-10 tracking-tighter text-text-primary md:mx-auto md:max-w-lg md:text-4xl">
-                My site is a playful sandbox. Explore, experiment, && say hello
+                This is a collection of my recent and ongoing work.
               </h2>
             </GridWrapper>
           </div>

@@ -70,7 +70,7 @@ export function Footer(): JSX.Element {
                   <Link className="inline-block" href="/">
                     {/* Using Next.js Image component for logo.svg */}
                     <Image
-                      className="h-10 w-10"
+                      className="h-11 w-11"
                       src="/logo.svg" // Assuming logo.svg is in your public folder
                       alt={`${siteMetadata.author}'s Logo`}
                       width={40}

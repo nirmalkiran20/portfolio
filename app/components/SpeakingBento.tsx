@@ -48,7 +48,7 @@ export function SpeakingBento() {
               stiffness: 150,
             }}
           >
-            <PrimaryPhoto imgSrc="/braydon_speaking_photo.jpeg" />
+            <PrimaryPhoto imgSrc="/avatar.png" />
           </motion.span>
 
           <motion.span
@@ -63,7 +63,7 @@ export function SpeakingBento() {
               stiffness: 150,
             }}
           >
-            <SecondaryPhoto imgSrc="/braydon_headshot_4.jpg" />
+            <SecondaryPhoto imgSrc="/avatar.png" />
           </motion.span>
         </div>
         {/* Gradient overlay */}

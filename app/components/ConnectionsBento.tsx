@@ -6,14 +6,14 @@ import Image from "next/image";
 
 const connections = [
   {
-    name: "Brittany Chiang",
-    link: "https://brittanychiang.com/",
+    name: "bb",
+    link: "",
     image: "/avatar.png", // ✅ replace with actual image path if dynamic
     description: "Frontend engineer who builds beautiful personal websites",
   },
   {
-    name: "Braydon Coyer",
-    link: "https://braydoncoyer.dev/",
+    name: "kiran",
+    link: "",
     image: "/avatar.png",
     description: "Developer/designer focused on aesthetic & performance",
   },
