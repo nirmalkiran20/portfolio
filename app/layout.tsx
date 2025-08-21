@@ -32,6 +32,9 @@ export const metadata: Metadata = {
     description: siteMetadata.description,
     images: ["/kiran_cover_og.png"],
   },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
