@@ -1,43 +1,41 @@
-import Link from "next/link";
-import { BentoCard } from "./BentoCard";
+"use client";
+
+import React from "react";
 import Image from "next/image";
-import { ArrowRight, BookIcon } from "lucide-react";
+import { BentoCard } from "./BentoCard";
 
-export function EbookBento(): JSX.Element {
-  const icon = <BookIcon className="h-4 w-4" />;
-  const linkTo = "/ebook"; // This is the old path for projects, now for the Ebook
-  const title = "My Published Ebook";
-  const description =
-    "Check out my guide to digital marketing strategies and tactics, available on Amazon.";
-
+export function EbookBento() {
   return (
-    <BentoCard className="group flex flex-col justify-between" linkTo={linkTo}>
-      <div>
-        <div className="flex w-full items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <span className="border-border-secondary bg-bg-secondary flex items-center justify-center rounded-full border p-1">
-              {icon}
-            </span>
-            <span className="text-sm font-medium text-text-secondary">
-              {title}
-            </span>
-          </div>
-          <Link
-            aria-label={`Link to ${title}`}
-            href={linkTo}
-            className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
-          >
-            <ArrowRight className="h-4 w-4 text-text-secondary" />
-          </Link>
+    <BentoCard height="h-[250px]" linkTo="/ebook">
+      <div className="group relative grid h-full grid-cols-12 gap-5">
+        {/* Left Text */}
+        <div className="col-span-5 text-balance md:col-span-3">
+          <h2 className="mb-4 text-base font-medium">SEO Ebook</h2>
+          <p className="mb-2 text-text-secondary">
+            Unlock your digital presence practical insights you can apply right
+            away.
+          </p>
+          <p className="mt-2 text-xs text-text-tertiary"></p>
         </div>
-        <div className="mt-4 flex h-full w-full items-center justify-center">
-          <Image
-            src="/seoebook.jpg"
-            alt="the Ebook cover"
-            width={150}
-            height={200}
-            className="rounded-lg shadow-lg"
-          />
+
+        {/* Right Image with same hover effect */}
+        <div className="absolute left-[43%] top-7 transition-all duration-500 ease-out md:-right-14 md:left-auto md:group-hover:-right-12 md:group-hover:top-5">
+          <div className="h-[720px] w-[510px] rounded-[20px] border border-border-primary p-3 transition-all duration-500 group-hover:-translate-y-2 group-hover:border-indigo-400">
+            <div
+              className="h-full rounded-xl bg-white/10 p-3 backdrop-blur-xl"
+              style={{ boxShadow: "0px 2px 1.5px 0px #A5AEB852 inset" }}
+            >
+              <div className="relative h-full w-full">
+                <Image
+                  src="/seoebook.jpg"
+                  alt="Cover of the SEO Ebook"
+                  fill
+                  className="rounded-lg object-cover"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </BentoCard>

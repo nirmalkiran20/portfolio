@@ -22,7 +22,6 @@ const footerSections: FooterSection[] = [
       { href: "/", label: "Home" },
       { href: "/about", label: "About" },
       { href: "/ebook", label: "Ebook" },
-      //{ href: "/blog", label: "Blog" },
     ],
   },
   {

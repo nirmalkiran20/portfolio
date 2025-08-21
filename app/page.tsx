@@ -1,25 +1,14 @@
-import { BgGradient } from "./components/BgGradient";
-import { MySitePattern } from "./components/SvgPatterns";
-import { NewsletterSignUp } from "./components/NewsletterSignUp";
+import { QuoteOfTheDay } from "./components/QuoteOfTheDay";
 import { ChangelogBento } from "./components/ChangelogBento";
-//import { fetchAndSortBlogPosts } from "./lib/utils";
-//import { getAllPosts } from "./lib/blog";
-
-//import { SpeakingBento } from "./components/SpeakingBento";
 import { CommunityWallBento } from "./components/CommunityWallBento";
-//import { CalendarBento } from "./components/CalendarBento";
-//import { FeaturedBlogCard } from "./components/FeaturedBlogCard";
 import { ToolboxBento } from "./components/ToolboxBento";
-// import { ConnectionsBento } from "./components/ConnectionsBento"; // Removed ConnectionsBento
 import { ConnectWithMeBento } from "./components/ConnectWithMeBento"; // Import the new component
-//import { AnimatedProfilePicture } from "./components/AnimatedProfilePicture";
 import { AnimatedText } from "./components/AnimatedText";
 import { PhotoGallery } from "./components/PhotoGallery";
 import { AboutMeBento } from "./components/AboutMeBento";
 import { AnimatedMobilePhotos } from "./components/AnimatedMobilePhotos";
 import { GridWrapper } from "./components/GridWrapper";
-import clsx from "clsx";
-import { EbookBento } from "./components/CalendarBento";
+import { EbookBento } from "./components/EbookBento";
 
 export default async function Home() {
   //const allPublishedBlogPosts = await fetchAndSortBlogPosts();
@@ -53,10 +42,9 @@ export default async function Home() {
                   delay={PARAGRAPH_DELAY}
                   className="leading-8 text-text-secondary"
                 >
-                  I&apos;m a digital marketing specialist with a growing passion
-                  for front-end development.
-                  <br />I love blending creativity with code to bring clean,
-                  impactful designs to life.
+                  I analyze behavior, report insights, and prioritize fixes that
+                  remove friction,
+                  <br /> improve flow, and grow a brands online presence.
                 </AnimatedText>
               </div>
             </GridWrapper>
@@ -110,32 +98,6 @@ export default async function Home() {
           </GridWrapper>
         </section>
 
-        {/* Blog Section 
-        <section className="relative space-y-10 md:space-y-16">
-          {/* <BlogPattern /> 
-          <div className="relative space-y-4 text-balance">
-            <span className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2">
-              <BgGradient />
-            </span>
-            <GridWrapper>
-              <div className="text-center text-sm font-medium text-indigo-600">
-                <span>Blog</span>
-              </div>
-            </GridWrapper>
-            <GridWrapper>
-              <h2 className="mx-auto max-w-lg text-center text-3xl font-medium leading-10 tracking-tighter text-text-primary md:text-4xl">
-                I like sharing my experiments && knowledge with others
-              </h2>
-            </GridWrapper>
-          </div>
-
-          <div className="z-10">
-            <GridWrapper>
-              <ul className="z-50 grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3"></ul>
-            </GridWrapper>
-          </div>
-        </section>*/}
-
         {/* My Site Section */}
         <section className="relative space-y-10 md:space-y-16">
           {/* <MySitePattern /> */}
@@ -165,7 +127,7 @@ export default async function Home() {
 
         {/* Newsletter Section */}
         <section>
-          <NewsletterSignUp />
+          <QuoteOfTheDay />
         </section>
       </div>
     </section>

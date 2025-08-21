@@ -1,4 +1,4 @@
-import { NewsletterSignUp } from "@/app/components/NewsletterSignUp";
+import { QuoteOfTheDay } from "@/app/components/QuoteOfTheDay";
 import { HorizontalLine } from "@/app/components/HorizontalLine";
 import { getTimeOfDayGreeting } from "app/lib/utils";
 import React from "react";
@@ -354,7 +354,7 @@ export default function AboutPage() {
         </section>
 
         {/* Newsletter */}
-        <NewsletterSignUp />
+        <QuoteOfTheDay />
       </div>
     </div>
   );

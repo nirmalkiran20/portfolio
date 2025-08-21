@@ -1,4 +1,4 @@
-import { NewsletterSignUp } from "@/app/components/NewsletterSignUp";
+import { QuoteOfTheDay } from "@/app/components/QuoteOfTheDay";
 import { GridWrapper } from "@/app/components/GridWrapper";
 import { Metadata } from "next";
 import Image from "next/image"; // Import Next.js Image component
@@ -142,7 +142,7 @@ export default function EbookPage() {
 
         {/* Newsletter Section */}
         <section>
-          <NewsletterSignUp />
+          <QuoteOfTheDay />
         </section>
       </div>
     </div>
