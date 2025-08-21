@@ -1,4 +1,4 @@
-import { NewsletterSignUp } from "@/app/components/NewsletterSignUp";
+import { QuoteOfTheDay } from "@/app/components/QuoteOfTheDay";
 import { softwareData } from "app/data/toolbox";
 import { HorizontalLine } from "@/app/components/HorizontalLine";
 import { GridWrapper } from "@/app/components/GridWrapper";
@@ -67,7 +67,7 @@ export default function ToolboxPage() {
         </GridWrapper>
 
         {/* Newsletter */}
-        <NewsletterSignUp />
+        <QuoteOfTheDay />
       </div>
     </div>
   );

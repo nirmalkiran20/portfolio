@@ -1,4 +1,4 @@
-import { NewsletterSignUp } from "@/app/components/NewsletterSignUp";
+import { QuoteOfTheDay } from "@/app/components/QuoteOfTheDay";
 import { GridWrapper } from "@/app/components/GridWrapper";
 import { Button } from "@/app/components/Button";
 import { siteMetadata } from "@/app/data/siteMetadata";
@@ -159,7 +159,7 @@ export default async function LinksPage() {
           </div>
         </GridWrapper>
 
-        <NewsletterSignUp />
+        <QuoteOfTheDay />
       </div>
     </div>
   );
