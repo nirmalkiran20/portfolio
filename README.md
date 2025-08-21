@@ -65,3 +65,9 @@ Vercel
  (recommended)
 
 Or any Node.js hosting provider
+
+📜 License
+
+This project is open source under the MIT License.
+
+See the full license → LICENSE
